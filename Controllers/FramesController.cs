@@ -20,9 +20,33 @@ namespace GurpreetFrameAgency.Controllers
         }
 
         // GET: Frames
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string frameColor, string searchString)
         {
-            return View(await _context.Frame.ToListAsync());
+            // Use LINQ to get list of genres.
+            IQueryable<string> colorQuery = from m in _context.Frame
+                                            orderby m.Color
+                                            select m.Color;
+
+            var frames = from m in _context.Frame
+                         select m;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                frames = frames.Where(s => s.Name.Contains(searchString));
+            }
+
+            if (!string.IsNullOrEmpty(frameColor))
+            {
+                frames = frames.Where(x => x.Color == frameColor);
+            }
+
+            var frameColorVM = new FrameColorViewModel
+            {
+                Colors = new SelectList(await colorQuery.Distinct().ToListAsync()),
+                Frames = await frames.ToListAsync()
+            };
+
+            return View(frameColorVM);
         }
 
         // GET: Frames/Details/5
