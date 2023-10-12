@@ -10,6 +10,6 @@ namespace GurpreetFrameAgency.Data
         {
         }
 
-        public DbSet<Movie> Movie { get; set; }
+        public DbSet<Frame> Frame { get; set; }
     }
 }
