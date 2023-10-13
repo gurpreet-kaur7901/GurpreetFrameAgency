@@ -7,9 +7,14 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body>
+<style>
+    .nav-link:hover {
+            background-color: #6fb3b8;
+        }
+</style>
+<body style="background-color:#f6f6f2;">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Frames" asp-action="Index">Frame App</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -38,8 +43,8 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
+    <footer class=" footer text-muted">
+        <div style="color:white" class="container">
             &copy; 2023 - Frame App - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>

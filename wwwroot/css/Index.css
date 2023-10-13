@@ -1,0 +1,24 @@
+﻿.imagecss img {
+    width: 25%;
+    height: auto;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.imagecss .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.imagecss .image:hover img {
+    opacity: 0.8;
+}
+
+.imagecss .image:hover .centered {
+    opacity: 1;
+}
